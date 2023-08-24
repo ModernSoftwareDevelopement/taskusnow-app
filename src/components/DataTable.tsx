@@ -1,7 +1,7 @@
 import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
 interface DataTableProps {
-  data: any;
+  data: {}[], // not sure
   column: string[];
 }
 
