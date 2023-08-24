@@ -1,25 +1,23 @@
 import useUsers from '../../../hooks/useUsers.ts';
+import DataTable from '../../../components/DataTable.tsx';
+import { Heading } from '@chakra-ui/react';
 
 const UserList = () => {
-
   const { data, isLoading, error } = useUsers();
 
+  const column = ['id', 'avatar', 'name', 'email'];
+
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>Error</div>
+    return <div>Error</div>;
   }
-
   return (
     <>
-      <h1>UserList</h1>
-      <ul>
-        {data.map((user: any) => (
-          <li key={user.id}>{user.name}</li>
-        ))}
-      </ul>
+      <Heading>User List</Heading>
+      <DataTable data={data} column={column}/>
     </>
   );
 }
