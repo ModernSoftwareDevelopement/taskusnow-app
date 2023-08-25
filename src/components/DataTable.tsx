@@ -22,8 +22,9 @@ const DataTable = <T, >({ data, columns }: DataTableProps<T>) => {
           </Tr>
         </Thead>
         <Tbody>
-          {data.map((row, index: number) => (
-            <Tr key={index}>
+          {data.map((row) => (
+            // @ts-ignore
+            <Tr key={row.id}>
               {columns.map((column) => (
                 <Td key={column.header}>{column.accessor(row)}</Td>
               ))}
