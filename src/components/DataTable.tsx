@@ -1,31 +1,35 @@
 import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
-interface DataTableProps {
-  data: any, // not sure
-  column: string[];
+export interface Column<T> {
+  header: string;
+  accessor: (row: T) => string | number;
 }
 
-const DataTable = ({ data, column }: DataTableProps) => {
+interface DataTableProps<T> {
+  data: T[],
+  columns: Column<T>[];
+}
+
+const DataTable = <T, >({ data, columns }: DataTableProps<T>) => {
   return (
     <>
       <Table variant="simple">
         <Thead>
           <Tr>
-            {column.map((col, index) => (
-              <Th key={index}>{col}</Th>
+            {columns.map((column) => (
+              <Th key={column.header}>{column.header}</Th>
             ))}
           </Tr>
         </Thead>
         <Tbody>
-          {data?.map((item: any, index: number) => (
+          {data.map((row, index: number) => (
             <Tr key={index}>
-              {column.map((col, index) => (
-                <Td key={index}>{item[col]}</Td>
+              {columns.map((column) => (
+                <Td key={column.header}>{column.accessor(row)}</Td>
               ))}
             </Tr>
           ))}
         </Tbody>
-
       </Table>
     </>
   );
