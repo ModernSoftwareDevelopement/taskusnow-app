@@ -1,9 +1,7 @@
-interface User {
+export interface User {
   id: number;
-  name: string;
-  email: string;
-  gender: string;
+  name?: string;
+  email?: string;
   avatar: string;
+  gender: string;
 }
-
-export default User;
