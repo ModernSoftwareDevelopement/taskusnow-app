@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ChakraProvider>
       <QueryClientProvider client={queryClient}>
-        <App/>
+        <RouterProvider router={router}/>
       </QueryClientProvider>
     </ChakraProvider>
   </React.StrictMode>,
