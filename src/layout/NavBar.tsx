@@ -32,9 +32,14 @@ const Links = [
     name: 'Tasks',
     path: '/tasks',
   },
+  ,
   {
     name: 'About',
     path: '/about',
+  },
+  {
+    name: 'Post a Task',
+    path: '/task',
   }
 ];
 
@@ -76,7 +81,7 @@ const NavBar = () => {
             </Box>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
-                <NavLink key={link.name} name={link.name} path={link.path}/>
+                <NavLink key={link?.name} name={link?.name || ""} path={link?.path || ""}/>
               ))}
             </HStack>
           </HStack>
@@ -112,7 +117,7 @@ const NavBar = () => {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link.name} name={link.name} path={link.path}/>
+                <NavLink key={link?.name} name={link?.name || ""} path={link?.path || ""}/>
               ))}
             </Stack>
           </Box>
