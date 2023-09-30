@@ -1,6 +1,34 @@
-import { Box, Button, Center, FormControl, FormLabel, Heading, HStack, Input, Stack } from '@chakra-ui/react';
+import { Box, Button, Center, FormControl, FormLabel, Heading, HStack, Input, Stack, Text } from '@chakra-ui/react';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { FieldValues, useForm } from 'react-hook-form';
+
+const schema = z.object({
+  fullName: z.string()
+    .min(2, { message: 'Name must be at least 2 characters' })
+    .max(50, { message: 'Name is too long' }),
+  gender: z.string().min(2).max(50),
+  email: z.string().email(),
+  address: z.string().min(2).max(50),
+  number: z.string().min(2).max(50),
+  city: z.string().min(2).max(50),
+  zip: z.string().min(2).max(50),
+});
+
+type FormData = z.infer<typeof schema>;
 
 const GeneralInfoForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
+  console.log(errors)
+  const onSubmit = (data: FieldValues) => console.log(data);
+
   return (
     <>
       <Center paddingY={1}>
@@ -12,7 +40,7 @@ const GeneralInfoForm = () => {
           rounded={'lg'}
           p={6}>
 
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Stack spacing={5}>
               <Heading fontSize={'2xl'}>
                 General Information
@@ -22,16 +50,23 @@ const GeneralInfoForm = () => {
                 <HStack>
                   <FormControl id="fullName" isRequired>
                     <FormLabel>Full name</FormLabel>
-                    <Input placeholder="Full name" type="text"/>
+                    <Input
+                      {...register('fullName')}
+                      placeholder="Full name"
+                      type="text"/>
+                   <Text color='red'>{errors.fullName ? errors.fullName.message: null}</Text>
                   </FormControl>
                   <FormControl id="gender">
                     <FormLabel>Gender</FormLabel>
                     <Input placeholder="Gender" type="text"/>
                   </FormControl>
                 </HStack>
-                <FormControl>
+                <FormControl id="email" isRequired>
                   <FormLabel>Email</FormLabel>
-                  <Input placeholder="Email" type="text"/>
+                  <Input {...register('email')}
+                          placeholder="Email"
+                         type="text"/>
+                  <Text color='red'>{errors.email ? errors.email.message: null}</Text>
                 </FormControl>
               </Stack>
 
@@ -65,7 +100,7 @@ const GeneralInfoForm = () => {
               </Stack>
 
 
-              <Button colorScheme='teal'>Save All</Button>
+              <Button colorScheme="teal" type="submit">Save All</Button>
 
             </Stack>
 

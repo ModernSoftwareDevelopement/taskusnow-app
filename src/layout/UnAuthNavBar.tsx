@@ -1,18 +1,11 @@
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
-  Stack, Image,
+  Stack, Image, Menu, MenuButton, Button,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
@@ -24,7 +17,7 @@ interface Props {
   path: string;
 }
 
-const publicLinks = [
+const Links = [
   {
     name: 'Home',
     path: '/',
@@ -32,18 +25,6 @@ const publicLinks = [
   {
     name: 'About',
     path: '/about',
-  },
-];
-
-
-const privateLinks = [
-  {
-    name: 'Home',
-    path: '/dashboard',
-  },
-  {
-    name: 'Tasks',
-    path: '/tasks',
   },
 ];
 
@@ -64,9 +45,7 @@ const NavLink = ({ name, path }: Props) => {
 };
 
 const NavBar = () => {
-  const { user, loginWithRedirect, logout } = useAuth();
-
-  const Links = user ? privateLinks : publicLinks;
+  const { loginWithRedirect } = useAuth();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -95,41 +74,17 @@ const NavBar = () => {
           </HStack>
           <Flex alignItems={'center'}>
             <Menu>
-              {user ?
-                (<MenuButton
-                    as={Button}
-                    rounded={'full'}
-                    variant={'link'}
-                    cursor={'pointer'}
-                    minW={0}>
-                    <Avatar
-                      size={'md'}
-                    />
-                  </MenuButton>
-
-                )
-                :
-                (<MenuButton
-                  as={Button}
-                  cursor={'pointer'}
-                  onClick={() => loginWithRedirect()}
-                >
+              <MenuButton
+                as={Button}
+                cursor={'pointer'}
+                onClick={() => loginWithRedirect()}
+              >
                   Login
-                </MenuButton>)
-              }
-
-              {user ? <MenuList>
-                <MenuItem>
-                  <Link to="/profile">Profile</Link>
-                </MenuItem>
-                <MenuDivider/>
-                <MenuItem onClick={() => logout()}>
-                  Logout
-                </MenuItem>
-              </MenuList> : null}
+              </MenuButton>
             </Menu>
           </Flex>
         </Flex>
+
 
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>

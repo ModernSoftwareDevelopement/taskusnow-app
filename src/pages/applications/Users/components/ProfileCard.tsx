@@ -16,8 +16,7 @@ const ProfileCard = () => {
             size={'xl'}
             mb={4}
             src={
-              'https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-6/357710445_3125878341053480_5214693532527175189_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=SorudGOR2d8AX_TN5qC&_nc_ht=scontent.fhan14-4.fna&oh=00_AfBu5ZvTre0iesS63iTaUxl2dTU6wzT263kEuCoXYw2juw&oe=64FE7BF9'
-            }
+'https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-6/357710445_3125878341053480_5214693532527175189_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=iE8L6K5WrnYAX-qMo_V&_nc_ht=scontent.fhan14-4.fna&oh=00_AfB3xV_I-Y768tWK6PKCK8gnFaEtR2n7jbQNzd0RUHS4fg&oe=65085F39'            }
           />
           <Heading>
             Liucuxiu
