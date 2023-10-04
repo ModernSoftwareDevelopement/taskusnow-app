@@ -1,7 +1,7 @@
-import ProfileCard from './components/ProfileCard.tsx';
+import ProfileCard from '../../../components/user/ProfileCard.tsx';
 import { Grid, GridItem } from '@chakra-ui/react';
-import GeneralInfoForm from './components/GeneralInfoForm.tsx';
-import ShareProfileButton from './components/ShareProfileButton.tsx';
+import GeneralInfoForm from '../../../components/user/GeneralInfoForm.tsx';
+import ShareProfileButton from '../../../components/user/ShareProfileButton.tsx';
 
 const UserProfile = () => {
   return (

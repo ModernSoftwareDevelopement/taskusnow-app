@@ -1,4 +1,4 @@
-import LoginButton from './component/LoginButton.tsx';
+import LoginButton from '../../../components/user/LoginButton.tsx';
 import useAuth from '../../../hooks/useAuth.ts';
 import { Navigate } from 'react-router-dom';
 

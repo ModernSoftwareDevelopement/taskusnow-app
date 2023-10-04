@@ -31,7 +31,7 @@ const GeneralInfoForm = () => {
 
   return (
     <>
-      <Center paddingY={1}>
+      <Center>
         <Box
           maxW={'900px'}
           w={'full'}

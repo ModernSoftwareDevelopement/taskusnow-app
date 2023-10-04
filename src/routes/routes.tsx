@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import UserProfile from '../pages/applications/Users/UserProfile.tsx';
 import PrivateRoutes from './PrivateRoutes.tsx';
 import LoginPage from '../pages/applications/Authentications/LoginPage.tsx';
 import PublicRoutes from './PublicRoutes.tsx';
 import Dashboard from '../pages/dashboards/Dashboard.tsx';
 import Home from '../pages/home/Home.tsx';
+import UserProfilePage from '../pages/applications/Users/UserProfilePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         path: 'dashboard', element: <Dashboard/>
       },
       {
-        path: 'profile', element: <UserProfile/>
+        path: 'profile', element: <UserProfilePage/>
       },
       {
         path: 'tasks', element: <div>Tasks</div>
