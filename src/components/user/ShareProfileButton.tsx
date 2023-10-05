@@ -24,19 +24,18 @@ const ShareProfileButton = () => {
     <>
       <Center paddingY={1}>
         <Box
-          maxW={'350px'}
+          maxW={'400px'}
           w={'full'}
           boxShadow={'2xl'}
           bg={'white'}
           rounded={'lg'}
           p={6}>
-
           <Stack>
             <Button>View Public Profile</Button>
             <InputGroup>
               <Input
                 value="https://www.facebook.com/liucuxiu"
-                mr={2}
+                mr={2} readOnly={true}
               />
               <IconButton
                 aria-label="Copy"

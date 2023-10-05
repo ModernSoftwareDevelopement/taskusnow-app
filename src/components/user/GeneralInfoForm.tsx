@@ -1,34 +1,22 @@
-import { Box, Button, Center, FormControl, FormLabel, Heading, HStack, Input, Stack, Text } from '@chakra-ui/react';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { FieldValues, useForm } from 'react-hook-form';
+import {
+  Box,
+  Center,
+  Divider,
+  Heading, Select,
+  Stack,
+  Text,
+  VStack
+} from '@chakra-ui/react';
+import EditableText from '../EditableText.tsx';
+import { useState } from 'react';
 
-const schema = z.object({
-  fullName: z.string()
-    .min(2, { message: 'Name must be at least 2 characters' })
-    .max(50, { message: 'Name is too long' }),
-  gender: z.string().min(2).max(50),
-  email: z.string().email(),
-  address: z.string().min(2).max(50),
-  number: z.string().min(2).max(50),
-  city: z.string().min(2).max(50),
-  zip: z.string().min(2).max(50),
-});
-
-type FormData = z.infer<typeof schema>;
 
 const GeneralInfoForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
-  });
-
-  console.log(errors)
-  const onSubmit = (data: FieldValues) => console.log(data);
-
+  const [name, setName] = useState('');
+  const onSubmit = (name: string) => {
+    console.log(name);
+    console.log('hihihi');
+  };
   return (
     <>
       <Center>
@@ -40,72 +28,80 @@ const GeneralInfoForm = () => {
           rounded={'lg'}
           p={6}>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Stack spacing={5}>
-              <Heading fontSize={'2xl'}>
-                General Information
-              </Heading>
+          <Stack spacing={5}>
+            <Heading as="h3" size="md">Basic Info</Heading>
+            <VStack align="stretch">
+              <Text fontSize="sm">Full name</Text>
 
-              <Stack spacing={4}>
-                <HStack>
-                  <FormControl id="fullName" isRequired>
-                    <FormLabel>Full name</FormLabel>
-                    <Input
-                      {...register('fullName')}
-                      placeholder="Full name"
-                      type="text"/>
-                   <Text color='red'>{errors.fullName ? errors.fullName.message: null}</Text>
-                  </FormControl>
-                  <FormControl id="gender">
-                    <FormLabel>Gender</FormLabel>
-                    <Input placeholder="Gender" type="text"/>
-                  </FormControl>
-                </HStack>
-                <FormControl id="email" isRequired>
-                  <FormLabel>Email</FormLabel>
-                  <Input {...register('email')}
-                          placeholder="Email"
-                         type="text"/>
-                  <Text color='red'>{errors.email ? errors.email.message: null}</Text>
-                </FormControl>
-              </Stack>
+              <EditableText
+                placeholder="Full name"
+                value={name}
+                onChange={(name) => setName(name)}
+                onSubmit={(name) => onSubmit(name)}/>
+            </VStack>
+            <VStack align="stretch">
+              <Text fontSize="sm">Birthday</Text>
 
+              <EditableText
+                placeholder="Select your birthday"
+                value={name}
+                onChange={(name) => setName(name)}
+                onSubmit={(name) => onSubmit(name)}/>
+            </VStack>
 
-              <Heading fontSize={'2xl'}>
-                Address
-              </Heading>
+            <VStack align="stretch">
+              <Text fontSize="sm">Gender</Text>
+              <Box maxW="200px">
+                <Select placeholder="Select option">
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                  <option value="option3">Option 3</option>
+                </Select>
+              </Box>
+            </VStack>
 
-              <Stack spacing={4}>
-                <HStack>
-                  <FormControl id="address" isRequired>
-                    <FormLabel>Address</FormLabel>
-                    <Input placeholder="Enter your home address" type="text"/>
-                  </FormControl>
-                  <FormControl id="number">
-                    <FormLabel>Number</FormLabel>
-                    <Input placeholder="No." type="text"/>
-                  </FormControl>
-                </HStack>
-                <HStack>
-                  <FormControl>
-                    <FormLabel>City</FormLabel>
-                    <Input placeholder="City" type="text"/>
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>ZIP</FormLabel>
-                    <Input placeholder="ZIP" type="text"/>
-                  </FormControl>
-                </HStack>
+            <Divider/>
 
-              </Stack>
+            <Heading as="h3" size="md">Contact Info</Heading>
+            <VStack align="stretch">
+              <Text fontSize="sm">Email</Text>
 
+              <EditableText
+                placeholder="Enter your email"
+                value={name}
+                onChange={(name) => setName(name)}
+                onSubmit={(name) => onSubmit(name)}/>
+            </VStack>
+            <VStack align="stretch">
+              <Text fontSize="sm">Phone</Text>
+              <EditableText
+                placeholder="Enter your phone number"
+                value={name}
+                onChange={(name) => setName(name)}
+                onSubmit={(name) => onSubmit(name)}/>
+            </VStack>
 
-              <Button colorScheme="teal" type="submit">Save All</Button>
+            <Divider/>
 
-            </Stack>
+            <Heading as="h3" size="md">Addresses</Heading>
+            <VStack align="stretch">
+              <Text fontSize="sm">Home</Text>
+              <EditableText
+                placeholder="Enter your home address"
+                value={name}
+                onChange={(name) => setName(name)}
+                onSubmit={(name) => onSubmit(name)}/>
+            </VStack>
 
-          </form>
-
+            <VStack align="stretch">
+              <Text fontSize="sm">Other addresses</Text>
+              <EditableText
+                placeholder="None"
+                value={name}
+                onChange={(name) => setName(name)}
+                onSubmit={(name) => onSubmit(name)}/>
+            </VStack>
+          </Stack>
         </Box>
       </Center>
 

@@ -6,7 +6,7 @@ const ProfileCard = () => {
     <>
       <Center>
         <Box
-          maxW='350px'
+          maxW='400px'
           w='full'
           boxShadow='2xl'
           rounded='lg'

@@ -56,7 +56,7 @@ const EditableText = ({ placeholder, value, defaultValue, onSubmit, onChange }: 
           }}
         />
       </Tooltip>
-      <Input py={2} px={4} as={EditableInput}/>
+      <Input py={2} px={4} as={EditableInput} />
       <EditableControls/>
     </Editable>
   );

@@ -1,6 +1,6 @@
 import ProfileCard from '../../../components/user/ProfileCard.tsx';
 import { Grid, GridItem } from '@chakra-ui/react';
-import GeneralInfoForm from '../../../components/user/GeneralInfoForm.tsx';
+import GeneralInfoForm2 from '../../../components/user/GeneralInfoForm.tsx';
 import ShareProfileButton from '../../../components/user/ShareProfileButton.tsx';
 
 const UserProfile = () => {
@@ -16,7 +16,7 @@ const UserProfile = () => {
           <ProfileCard/>
         </GridItem>
         <GridItem rowSpan={3} colSpan={2}  paddingX={5} paddingY={10}>
-          <GeneralInfoForm/>
+          <GeneralInfoForm2/>
         </GridItem>
 
         <GridItem rowSpan={1} colSpan={1} paddingLeft={20}>
