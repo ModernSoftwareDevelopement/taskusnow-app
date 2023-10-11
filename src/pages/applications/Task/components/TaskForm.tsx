@@ -4,12 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues, useForm } from "react-hook-form";
 import { postTask } from "../../../../services/TaskAPI";
 
-
 const schema = z.object({
   title: z
     .string()
     .min(3, { message: "Title must contain at least 3 characters!" }),
-  description: z.string().min(10),
+  description: z
+    .string()
+    .min(10, { message: "Description must contain at least 10 characters!" }),
 }); // creating zod schema for variable, data type, limit and error message
 
 type TaskInterface = z.infer<typeof schema>; // to create shape of Task interface from zod base on schema
@@ -33,11 +34,11 @@ const TaskForm = () => {
     };
     try {
       await postTask(task);
-      alert("Task created!");      
+      alert("Task created!");
       reset();
     } catch (error) {
       console.error("Error creating task:", error);
-      alert("Failed to create task. Please try again.");      
+      alert("Failed to create task. Please try again.");
     }
   };
 
@@ -46,7 +47,7 @@ const TaskForm = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-4 offset-md-4">
-            <div className="mb-3">              
+            <div className="mb-3">
               <label htmlFor="title" className="form-label">
                 Title
               </label>
