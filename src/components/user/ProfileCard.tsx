@@ -6,10 +6,10 @@ const ProfileCard = () => {
     <>
       <Center>
         <Box
-          maxW='400px'
-          w='full'
-          boxShadow='2xl'
-          rounded='lg'
+          maxW="400px"
+          w="full"
+          boxShadow="2xl"
+          rounded="lg"
           p={6}
           textAlign="center"
           bg="white"
@@ -31,8 +31,8 @@ const ProfileCard = () => {
           </Text>
 
           <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
-            <SkillTag tag='React'/>
-            <SkillTag tag='TypeScript'/>
+            <SkillTag tag="React"/>
+            <SkillTag tag="TypeScript"/>
           </Stack>
 
           <Stack mt={8} direction={'row'} spacing={4}>

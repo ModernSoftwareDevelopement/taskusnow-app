@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: import.meta.env.VITE_API_SERVER_URL,
 });
 
 class ApiClient<T> {
@@ -22,6 +22,17 @@ class ApiClient<T> {
       .get<T>(this.endpoint + "/" + id)
       .then(response => response.data);
   }
+
+  post = (data: T, accessToken?: string) => {
+    return axiosInstance
+      .post<T>(this.endpoint, data, {
+        headers: {
+          Authorization: `Bearer ${accessToken}` || undefined,
+        }
+      })
+      .then(response => response.data);
+  }
+
 }
 
 export default ApiClient;

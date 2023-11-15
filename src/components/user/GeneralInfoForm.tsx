@@ -1,22 +1,33 @@
 import {
-  Box,
-  Center,
-  Divider,
-  Heading, Select,
-  Stack,
-  Text,
-  VStack
+  Box, Button, Center, FormControl, FormLabel, Heading, Input, Stack, VStack,
 } from '@chakra-ui/react';
-import EditableText from '../EditableText.tsx';
-import { useState } from 'react';
-
+import useUserStore from '../../stores/useUserStore.ts';
+import { Field, Form, Formik } from 'formik';
+import useUpdateUserInfo from '../../hooks/useUpdateUserInfo.ts';
 
 const GeneralInfoForm = () => {
-  const [name, setName] = useState('');
-  const onSubmit = (name: string) => {
-    console.log(name);
-    console.log('hihihi');
+  const updateUserProfile = useUpdateUserInfo();
+  const user = useUserStore(state => state.user);
+  const accessToken = useUserStore(state => state.accessToken);
+
+  const initialValues = {
+    fullName: user?.fullName,
+    email_2: user?.email_2,
+    phone: user?.phone,
+    address: user?.address,
+    address_2: user?.address_2,
   };
+
+  const onSubmit = async (values: any) => {
+    const formData = Object.fromEntries(
+      Object.entries(values).filter(([_, v]) => v !== undefined),
+    );
+    updateUserProfile.mutate({
+      accessToken,
+      ...formData,
+    });
+  };
+
   return (
     <>
       <Center>
@@ -27,81 +38,54 @@ const GeneralInfoForm = () => {
           bg={'white'}
           rounded={'lg'}
           p={6}>
+          <Formik initialValues={initialValues}
+                  onSubmit={onSubmit}
+          >
+            <Form>
+              <Stack spacing={5}>
+                <Heading as="h3" size="md">Basic Info</Heading>
+                <VStack spacing={3}>
+                  <FormControl>
+                    <FormLabel htmlFor="fullName">Full Name</FormLabel>
+                    <Field as={Input} name="fullName" placeholder="Full name"/>
+                  </FormControl>
+                </VStack>
 
-          <Stack spacing={5}>
-            <Heading as="h3" size="md">Basic Info</Heading>
-            <VStack align="stretch">
-              <Text fontSize="sm">Full name</Text>
 
-              <EditableText
-                placeholder="Full name"
-                value={name}
-                onChange={(name) => setName(name)}
-                onSubmit={(name) => onSubmit(name)}/>
-            </VStack>
-            <VStack align="stretch">
-              <Text fontSize="sm">Birthday</Text>
+                <Heading as="h3" size="md">Contact Info</Heading>
+                <VStack spacing={3}>
+                  <FormControl>
+                    <FormLabel htmlFor="email_2">Email</FormLabel>
+                    <Field as={Input}
+                           name="email_2"
+                           placeholder="Email"
+                           type="email"
+                    />
+                  </FormControl>
 
-              <EditableText
-                placeholder="Select your birthday"
-                value={name}
-                onChange={(name) => setName(name)}
-                onSubmit={(name) => onSubmit(name)}/>
-            </VStack>
+                  <FormControl>
+                    <FormLabel htmlFor="phone">Phone</FormLabel>
+                    <Field as={Input} name="phone" placeholder="Phone"/>
+                  </FormControl>
+                </VStack>
 
-            <VStack align="stretch">
-              <Text fontSize="sm">Gender</Text>
-              <Box maxW="200px">
-                <Select placeholder="Select option">
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </Select>
-              </Box>
-            </VStack>
+                <Heading as="h3" size="md">Addresses</Heading>
+                <VStack spacing={3}>
+                  <FormControl>
+                    <FormLabel htmlFor="address">Home Address</FormLabel>
+                    <Field as={Input} name="address" placeholder="Home Address"/>
+                  </FormControl>
 
-            <Divider/>
+                  <FormControl>
+                    <FormLabel htmlFor="city">Other Address</FormLabel>
+                    <Field as={Input} name="address_2" placeholder="Other address"/>
+                  </FormControl>
+                </VStack>
 
-            <Heading as="h3" size="md">Contact Info</Heading>
-            <VStack align="stretch">
-              <Text fontSize="sm">Email</Text>
-
-              <EditableText
-                placeholder="Enter your email"
-                value={name}
-                onChange={(name) => setName(name)}
-                onSubmit={(name) => onSubmit(name)}/>
-            </VStack>
-            <VStack align="stretch">
-              <Text fontSize="sm">Phone</Text>
-              <EditableText
-                placeholder="Enter your phone number"
-                value={name}
-                onChange={(name) => setName(name)}
-                onSubmit={(name) => onSubmit(name)}/>
-            </VStack>
-
-            <Divider/>
-
-            <Heading as="h3" size="md">Addresses</Heading>
-            <VStack align="stretch">
-              <Text fontSize="sm">Home</Text>
-              <EditableText
-                placeholder="Enter your home address"
-                value={name}
-                onChange={(name) => setName(name)}
-                onSubmit={(name) => onSubmit(name)}/>
-            </VStack>
-
-            <VStack align="stretch">
-              <Text fontSize="sm">Other addresses</Text>
-              <EditableText
-                placeholder="None"
-                value={name}
-                onChange={(name) => setName(name)}
-                onSubmit={(name) => onSubmit(name)}/>
-            </VStack>
-          </Stack>
+                <Button type="submit" colorScheme="blue">Save</Button>
+              </Stack>
+            </Form>
+          </Formik>
         </Box>
       </Center>
 

@@ -18,6 +18,9 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import logo from '../assets/react.svg';
 import useAuth from '../hooks/useAuth.ts';
+import { useEffect } from 'react';
+import useUserStore from '../stores/useUserStore.ts';
+import userService from '../services/userService.ts';
 
 interface Props {
   name: string;
@@ -64,11 +67,31 @@ const NavLink = ({ name, path }: Props) => {
 };
 
 const NavBar = () => {
-  const { user, loginWithRedirect, logout } = useAuth();
+  const { isAuthenticated, user, loginWithRedirect, logout, getAccessTokenSilently } = useAuth();
+  const setUser = useUserStore((state) => state.setUser);
+  const setAccessToken = useUserStore((state) => state.setAccessToken);
+  useEffect(() => {
+    const handleAuthentication = async () => {
+      if (isAuthenticated && user) {
+        const profile = await userService.get(user.my_api_user_id);
+        setUser(profile);
+
+        try {
+          const accessToken = await getAccessTokenSilently();
+          setAccessToken(accessToken);
+        }
+        catch (error) {
+          console.error('Error getting access token:', error);
+        }
+      }
+    };
+    handleAuthentication();
+  }, [isAuthenticated, user, setUser]);
 
   const Links = user ? privateLinks : publicLinks;
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
 
   return (
     <>

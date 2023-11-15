@@ -34,9 +34,10 @@ interface Props {
   defaultValue?: string;
   onSubmit?: (value: string) => void;
   onChange?: (value: string) => void;
+  onEdit?: () => void;
 }
 
-const EditableText = ({ placeholder, value, defaultValue, onSubmit, onChange }: Props) => {
+const EditableText = ({ placeholder, value, defaultValue, onSubmit, onChange, onEdit }: Props) => {
   return (
     <Editable
       placeholder={placeholder}
@@ -46,6 +47,7 @@ const EditableText = ({ placeholder, value, defaultValue, onSubmit, onChange }: 
       selectAllOnFocus={false}
       onSubmit={onSubmit}
       onChange={onChange}
+      onEdit={onEdit}
     >
       <Tooltip label="Click to edit" shouldWrapChildren={true}>
         <EditablePreview
@@ -56,7 +58,7 @@ const EditableText = ({ placeholder, value, defaultValue, onSubmit, onChange }: 
           }}
         />
       </Tooltip>
-      <Input py={2} px={4} as={EditableInput} />
+      <Input py={2} px={4} as={EditableInput}/>
       <EditableControls/>
     </Editable>
   );
