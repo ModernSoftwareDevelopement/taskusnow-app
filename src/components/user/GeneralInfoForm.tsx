@@ -8,7 +8,6 @@ import useUpdateUserInfo from '../../hooks/useUpdateUserInfo.ts';
 const GeneralInfoForm = () => {
   const updateUserProfile = useUpdateUserInfo();
   const user = useUserStore(state => state.user);
-  const accessToken = useUserStore(state => state.accessToken);
 
   const initialValues = {
     fullName: user?.fullName,
@@ -22,10 +21,7 @@ const GeneralInfoForm = () => {
     const formData = Object.fromEntries(
       Object.entries(values).filter(([_, v]) => v !== undefined),
     );
-    updateUserProfile.mutate({
-      accessToken,
-      ...formData,
-    });
+    updateUserProfile.mutate(formData);
   };
 
   return (

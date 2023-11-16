@@ -1,15 +1,17 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useToast } from '@chakra-ui/react';
 import User from '../entities/User.ts';
 import profileService from '../services/profileService.ts';
-import { useToast } from '@chakra-ui/react';
+import useUserStore from '../stores/useUserStore.ts';
 
 
 const useUpdateUserInfo = () => {
   const queryClient = useQueryClient();
+  const accessToken = useUserStore((state) => state.accessToken);
   const toast = useToast();
 
   return useMutation(
-    ({ accessToken, ...newUserProfile }) => profileService.post(newUserProfile, accessToken),
+    (newUserProfile) => profileService.post(newUserProfile, accessToken),
     {
       onMutate: async (newUserProfile: User) => {
         await queryClient.cancelQueries({ queryKey: ['user', newUserProfile.id] });
