@@ -1,6 +1,10 @@
 export interface TaskInterface {
-    taskid?: string;
+    taskId?: string;
     title: string;
     description: string;
     userid: number;    
 }
+
+export interface TaskData {
+    tasks: TaskInterface[];
+  }
