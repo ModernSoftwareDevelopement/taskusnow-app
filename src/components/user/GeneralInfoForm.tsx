@@ -1,20 +1,30 @@
 import {
   Box, Button, Center, FormControl, FormLabel, Heading, Input, Stack, VStack,
 } from '@chakra-ui/react';
-import useUserStore from '../../stores/useUserStore.ts';
 import { Field, Form, Formik } from 'formik';
 import useUpdateUserInfo from '../../hooks/useUpdateUserInfo.ts';
+import useUser from '../../hooks/useUser.ts';
+import useAuthUserStore from '../../stores/useAuthUserStore.ts';
 
 const GeneralInfoForm = () => {
+  const authUserId = useAuthUserStore(state => state.userId);
+
+  if (!authUserId) {
+    return <div>Please login</div>;
+  }
+
+  const { data, isLoading, isError } = useUser(authUserId);
   const updateUserProfile = useUpdateUserInfo();
-  const user = useUserStore(state => state.user);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error</div>;
 
   const initialValues = {
-    fullName: user?.fullName,
-    email_2: user?.email_2,
-    phone: user?.phone,
-    address: user?.address,
-    address_2: user?.address_2,
+    fullName: data.fullName,
+    email_2: data.email_2,
+    phone: data.phone,
+    address: data.address,
+    address_2: data.address_2,
   };
 
   const onSubmit = async (values: any) => {
@@ -84,7 +94,6 @@ const GeneralInfoForm = () => {
           </Formik>
         </Box>
       </Center>
-
     </>
   );
 };

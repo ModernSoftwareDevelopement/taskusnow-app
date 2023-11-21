@@ -1,7 +1,19 @@
 import { Avatar, Box, Button, Center, Heading, Stack, Text } from '@chakra-ui/react';
 import SkillTag from '../SkillTag.tsx';
+import useUser from '../../hooks/useUser.ts';
+import useUserStore from '../../stores/useAuthUserStore.ts';
 
 const ProfileCard = () => {
+  const authUserId = useUserStore(state => state.userId);
+
+  if (!authUserId) {
+    return <div>Please login</div>;
+  }
+  const { data, isLoading, isError } = useUser(authUserId);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error</div>;
+
   return (
     <>
       <Center>
@@ -21,7 +33,7 @@ const ProfileCard = () => {
               'https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-6/357710445_3125878341053480_5214693532527175189_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=iE8L6K5WrnYAX-qMo_V&_nc_ht=scontent.fhan14-4.fna&oh=00_AfB3xV_I-Y768tWK6PKCK8gnFaEtR2n7jbQNzd0RUHS4fg&oe=65085F39'}
           />
           <Heading>
-            Liucuxiu
+            {data.fullName}
           </Heading>
           <Text>
             @liucuxiu

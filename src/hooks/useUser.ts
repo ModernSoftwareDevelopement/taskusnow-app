@@ -3,8 +3,9 @@ import userService from '../services/userService.ts';
 
 const useUser = (userId: string | number) => {
   return useQuery({
-    queryKey: ['users', userId],
+    queryKey: ['user', userId],
     queryFn: () => userService.get(userId),
+    // enabled: !!userId,
   });
 };
 

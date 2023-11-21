@@ -3,6 +3,7 @@ import useAuth from '../../hooks/useAuth.ts';
 
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth();
+
   return (
     <>
       <Button onClick={() => loginWithRedirect()}>Login</Button>

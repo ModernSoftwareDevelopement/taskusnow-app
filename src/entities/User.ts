@@ -1,5 +1,5 @@
 interface User {
-  id?: string | number;
+  id?: string;
   fullName?: string;
   email_2?: string;
   imageUrl?: string;
@@ -7,7 +7,6 @@ interface User {
   phone?: string;
   address?: string;
   address_2?: string;
-  accessToken?: string;
 }
 
 export default User;
