@@ -36,13 +36,11 @@ const TaskDetailCard = ({ Task }: Props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <CardBody
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-            >
+            <CardBody display="flex" flexDirection="column" alignItems="center">
               <div className="d-flex justify-content-center mb-2">
-                <Text className="mr-2" fontWeight={"bold"}>Budget</Text>
+                <Text className="mr-2" fontWeight={"bold"}>
+                  Budget
+                </Text>
               </div>
               <div className="d-flex justify-content-center">
                 <Text color="blue.600" fontSize="lg">

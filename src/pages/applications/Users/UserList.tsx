@@ -1,11 +1,11 @@
-import useUsers from '../../../hooks/useUsers';
-import { Spinner } from '@chakra-ui/react';
+import useUsers from "../../../hooks/useUsers";
+import { Spinner } from "@chakra-ui/react";
 
 // example to use react-query
 const UserList = () => {
   const { data, isLoading, error } = useUsers();
 
-  if (isLoading) return <Spinner/>;
+  if (isLoading) return <Spinner />;
 
   if (error) throw error;
 
@@ -21,7 +21,7 @@ const UserList = () => {
         ))}
       </ul>
     </>
-  )
-}
+  );
+};
 
-export default UserList
+export default UserList;

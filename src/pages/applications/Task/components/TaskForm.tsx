@@ -32,16 +32,16 @@ const TaskForm = () => {
       title: data.title,
       description: data.description,
       user: {
-        userId: 'user123',
-        fullName: 'John Doe',
+        userId: "user123",
+        fullName: "John Doe",
       },
-      category: 'Sample Category',
-      location: 'Sample Location',
+      category: "Sample Category",
+      location: "Sample Location",
       budget: 100,
       scheduling: SchedulingOption.FLEXIBLE,
       timeslot: {
-        startTime: '10:00 AM',
-        endTime: '12:00 PM',
+        startTime: "10:00 AM",
+        endTime: "12:00 PM",
       },
       createdAt: new Date(),
     };

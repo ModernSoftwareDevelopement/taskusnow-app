@@ -8,7 +8,13 @@ interface Props {
 
 const TasksCard = ({ Task, OnClick }: Props) => {
   return (
-    <Card borderRadius={10} width={400} margin={0} padding={0} onClick={() => OnClick(Task)}>
+    <Card
+      borderRadius={10}
+      width={400}
+      margin={0}
+      padding={0}
+      onClick={() => OnClick(Task)}
+    >
       <div className="container">
         <div className="row">
           <div className="col-md-8">
@@ -21,7 +27,11 @@ const TasksCard = ({ Task, OnClick }: Props) => {
             </div>
           </div>
           <div className="col-md-4">
-            <CardBody display="flex" flexDirection="column" alignItems="flex-end">
+            <CardBody
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-end"
+            >
               <Text color="blue.600" fontSize="lg">
                 $150
               </Text>

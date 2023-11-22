@@ -1,29 +1,40 @@
-import { createBrowserRouter } from 'react-router-dom';
-import UserProfile from '../pages/applications/Users/UserProfile.tsx';
-import TaskForm from '../pages/applications/Task/components/TaskForm.tsx';
-import Tasks from '../pages/applications/Tasks/components/Tasks.tsx';
-import Layout from '../layout/Layout.tsx';
+import { createBrowserRouter } from "react-router-dom";
+import UserProfile from "../pages/applications/Users/UserProfile.tsx";
+import TaskForm from "../pages/applications/Task/components/TaskForm.tsx";
+import Tasks from "../pages/applications/Tasks/components/Tasks.tsx";
+import Layout from "../layout/Layout.tsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Layout/>,
+    path: "/",
+    element: <Layout />,
     children: [
       {
-        path: 'profile', element: <UserProfile/>
+        path: "profile",
+        element: <UserProfile />,
       },
       {
-        path: 'tasks', element: <div><Tasks /></div>
+        path: "tasks",
+        element: (
+          <div>
+            <Tasks />
+          </div>
+        ),
       },
       {
-        path: 'about', element: <div>About</div>
-      }
-      ,
+        path: "about",
+        element: <div>About</div>,
+      },
       {
-        path: 'task', element: <div><TaskForm /></div>
-      }
-    ]
+        path: "task",
+        element: (
+          <div>
+            <TaskForm />
+          </div>
+        ),
+      },
+    ],
   },
-])
+]);
 
 export default router;

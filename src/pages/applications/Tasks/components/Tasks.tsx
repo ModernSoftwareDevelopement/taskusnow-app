@@ -41,35 +41,33 @@ const Tasks = () => {
   }, []);
 
   return (
-    <>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="mb-3">
             <div className="mb-3">
-              <div className="mb-3">
-                <TaskCategories
-                  OnSelectCategory={(category) => console.log(category)}
-                />
-              </div>
-
-              {error && <Text>{error}</Text>}
-              <SimpleGrid columns={1} spacing={3}>
-                {tasks.map((task) => (
-                  <TasksCard
-                    key={task.taskId}
-                    Task={task}
-                    OnClick={handleSelectedTask}
-                  ></TasksCard>
-                ))}
-              </SimpleGrid>
+              <TaskCategories
+                OnSelectCategory={(category) => console.log(category)}
+              />
             </div>
-          </div>
-          <div className="col-md-6">
-            <TaskDetailCard Task={task}></TaskDetailCard>
+
+            {error && <Text>{error}</Text>}
+            <SimpleGrid columns={1} spacing={3}>
+              {tasks.map((task) => (
+                <TasksCard
+                  key={task.taskId}
+                  Task={task}
+                  OnClick={handleSelectedTask}
+                ></TasksCard>
+              ))}
+            </SimpleGrid>
           </div>
         </div>
+        <div className="col-md-6">
+          <TaskDetailCard Task={task}></TaskDetailCard>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

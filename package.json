@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",
@@ -24,9 +26,9 @@
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
-    "@types/node": "^20.8.0",
     "@hookform/resolvers": "^3.3.1",
     "@types/axios": "^0.14.0",
+    "@types/node": "^20.8.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -34,11 +36,17 @@
     "@vitejs/plugin-react": "^4.0.3",
     "bootstrap": "^5.3.1",
     "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.0",
     "react-hook-form": "^7.46.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "zod": "^3.22.2"
+  },
+  "lint-staged": {
+    "/src": "npx prettier --write"
   }
 }

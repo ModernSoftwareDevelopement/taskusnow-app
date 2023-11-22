@@ -5,29 +5,28 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: 'npm'
-    - name: Install Dependencies
-      run: npm install
-    - name: Build
-      run: npm run build --if-present
-    - name: Lint
-      run: npm run lint
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build --if-present
+      - name: Lint
+        run: npm run lint
 
   sonarcloud:
     name: SonarCloud
