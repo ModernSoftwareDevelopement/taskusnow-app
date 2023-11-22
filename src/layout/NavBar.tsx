@@ -32,7 +32,6 @@ const Links = [
     name: 'Tasks',
     path: '/tasks',
   },
-  ,
   {
     name: 'About',
     path: '/about',

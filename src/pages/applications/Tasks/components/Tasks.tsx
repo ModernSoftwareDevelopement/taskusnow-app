@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTasks } from "../../../../services/TaskAPI";
-import { TaskInterface, TaskData } from "../../../../models/Task";
+import { TaskInterface, TaskData } from "../../../../entities/Task";
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import TasksCard from "./TasksCard";
 import TaskDetailCard from "./TaskDetailCard";

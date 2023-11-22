@@ -1,5 +1,5 @@
 import { Card, CardBody, Heading, Avatar, Text } from "@chakra-ui/react";
-import { TaskInterface } from "../../../../models/Task";
+import { TaskInterface } from "../../../../entities/Task";
 
 interface Props {
   Task: TaskInterface;

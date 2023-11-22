@@ -3,6 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues, useForm } from "react-hook-form";
 import { postTask } from "../../../../services/TaskAPI";
+import { SchedulingOption } from "../../../../entities/Task";
 
 const schema = z.object({
   title: z
@@ -30,7 +31,19 @@ const TaskForm = () => {
     const task = {
       title: data.title,
       description: data.description,
-      userid: 123,
+      user: {
+        userId: 'user123',
+        fullName: 'John Doe',
+      },
+      category: 'Sample Category',
+      location: 'Sample Location',
+      budget: 100,
+      scheduling: SchedulingOption.FLEXIBLE,
+      timeslot: {
+        startTime: '10:00 AM',
+        endTime: '12:00 PM',
+      },
+      createdAt: new Date(),
     };
     try {
       await postTask(task);

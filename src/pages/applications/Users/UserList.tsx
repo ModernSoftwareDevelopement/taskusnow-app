@@ -1,44 +1,27 @@
-import useUsers from '../../../hooks/useUsers.ts';
-import DataTable, { Column } from '../../../components/DataTable.tsx';
-import { Heading } from '@chakra-ui/react';
-import { User } from '../../../models/User.ts';
+import useUsers from '../../../hooks/useUsers';
+import { Spinner } from '@chakra-ui/react';
 
+// example to use react-query
 const UserList = () => {
   const { data, isLoading, error } = useUsers();
 
-  const columns: Column<User>[] = [
-    {
-      header: 'ID',
-      accessor: (row) => row.id,
-    },
-    {
-      header: 'Name',
-      accessor: (row) => row.name,
-    },
-    {
-      header: 'Avatar',
-      accessor: (row) => row.avatar,
-    },
-    {
-      header: 'Email',
-      accessor: (row) => row.email,
-    },
-  ];
+  if (isLoading) return <Spinner/>;
 
+  if (error) throw error;
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  if (!data) return null;
 
-  if (error) {
-    return <div>Error</div>;
-  }
   return (
     <>
-      <Heading>User List</Heading>
-      <DataTable<User> data={data} columns={columns}/>
-    </>
-  );
-};
+      <h1>User List</h1>
 
-export default UserList;
+      <ul>
+        {data.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
+    </>
+  )
+}
+
+export default UserList
