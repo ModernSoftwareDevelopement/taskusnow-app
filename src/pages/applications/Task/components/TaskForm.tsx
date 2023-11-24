@@ -1,17 +1,17 @@
-import "./TaskForm.css";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { FieldValues, useForm } from "react-hook-form";
-import { postTask } from "../../../../services/TaskAPI";
-import { SchedulingOption } from "../../../../entities/Task";
+import './TaskForm.css';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { FieldValues, useForm } from 'react-hook-form';
+import { postTask } from '../../../../services/TaskAPI';
+import { SchedulingOption } from '../../../../entities/Task';
 
 const schema = z.object({
   title: z
     .string()
-    .min(3, { message: "Title must contain at least 3 characters!" }),
+    .min(3, { message: 'Title must contain at least 3 characters!' }),
   description: z
     .string()
-    .min(10, { message: "Description must contain at least 10 characters!" }),
+    .min(10, { message: 'Description must contain at least 10 characters!' }),
 }); // creating zod schema for variable, data type, limit and error message
 
 type TaskInterface = z.infer<typeof schema>; // to create shape of Task interface from zod base on schema
@@ -32,26 +32,26 @@ const TaskForm = () => {
       title: data.title,
       description: data.description,
       user: {
-        userId: "user123",
-        fullName: "John Doe",
+        userId: 'user123',
+        fullName: 'John Doe',
       },
-      category: "Sample Category",
-      location: "Sample Location",
+      category: 'Sample Category',
+      location: 'Sample Location',
       budget: 100,
       scheduling: SchedulingOption.FLEXIBLE,
       timeslot: {
-        startTime: "10:00 AM",
-        endTime: "12:00 PM",
+        startTime: '10:00 AM',
+        endTime: '12:00 PM',
       },
       createdAt: new Date(),
     };
     try {
       await postTask(task);
-      alert("Task created!");
+      alert('Task created!');
       reset();
     } catch (error) {
-      console.error("Error creating task:", error);
-      alert("Failed to create task. Please try again.");
+      console.error('Error creating task:', error);
+      alert('Failed to create task. Please try again.');
     }
   };
 
@@ -65,7 +65,7 @@ const TaskForm = () => {
                 Title
               </label>
               <input
-                {...register("title")}
+                {...register('title')}
                 id="title"
                 type="text"
                 className="form-control"
@@ -79,7 +79,7 @@ const TaskForm = () => {
                 Description
               </label>
               <textarea
-                {...register("description")}
+                {...register('description')}
                 id="description"
                 rows={5}
                 className="form-control"

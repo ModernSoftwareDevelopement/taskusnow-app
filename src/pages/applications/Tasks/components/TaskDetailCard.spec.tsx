@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import TaskDetailCard from './TaskDetailCard';
 import { TaskInterface } from '../../../../entities/Task';
 import { SchedulingOption } from '../../../../entities/Task';
-import "@testing-library/jest-dom/extend-expect";
+import '@testing-library/jest-dom/extend-expect';
 
 describe('TaskDetailCard', () => {
   const mockTask: TaskInterface = {
@@ -27,12 +27,14 @@ describe('TaskDetailCard', () => {
     render(<TaskDetailCard Task={mockTask} />);
 
     expect(screen.getByText(/Location/)).toBeInTheDocument();
-    expect(screen.getByText(/This is a sample description/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/This is a sample description/),
+    ).toBeInTheDocument();
   });
 
   it('renders nothing when Task is undefined', () => {
     render(<TaskDetailCard Task={undefined} />);
-    
+
     expect(screen.queryByText(/Sample Task/)).toBeNull();
     expect(screen.queryByText(/This is a sample description/)).toBeNull();
   });

@@ -1,5 +1,5 @@
-import { Card, CardBody, Heading, Avatar, Text } from "@chakra-ui/react";
-import { TaskInterface } from "../../../../entities/Task";
+import { Card, CardBody, Heading, Avatar, Text } from '@chakra-ui/react';
+import { TaskInterface } from '../../../../entities/Task';
 
 interface Props {
   Task: TaskInterface | undefined;
@@ -23,12 +23,12 @@ const TaskDetailCard = ({ Task }: Props) => {
                 <Avatar
                   className="mb-4"
                   src="https://bit.ly/broken-link"
-                  size={"xs"}
-                />{" "}
+                  size={'xs'}
+                />{' '}
                 Posted by
                 <Text className="mb-2">Location : Singapore</Text>
                 <Text className="mb-2">Date : Flexible</Text>
-                <Text className="mb-2" fontWeight={"bold"}>
+                <Text className="mb-2" fontWeight={'bold'}>
                   Details
                 </Text>
                 <Text className="mb-2">{Task.description}</Text>
@@ -38,7 +38,7 @@ const TaskDetailCard = ({ Task }: Props) => {
           <div className="col-md-6">
             <CardBody display="flex" flexDirection="column" alignItems="center">
               <div className="d-flex justify-content-center mb-2">
-                <Text className="mr-2" fontWeight={"bold"}>
+                <Text className="mr-2" fontWeight={'bold'}>
                   Budget
                 </Text>
               </div>

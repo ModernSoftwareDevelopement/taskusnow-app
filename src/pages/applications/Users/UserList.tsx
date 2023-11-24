@@ -1,5 +1,5 @@
-import useUsers from "../../../hooks/useUsers";
-import { Spinner } from "@chakra-ui/react";
+import useUsers from '../../../hooks/useUsers';
+import { Spinner } from '@chakra-ui/react';
 
 // example to use react-query
 const UserList = () => {

@@ -8,16 +8,16 @@ import {
   Stack,
   useClipboard,
   useToast,
-} from "@chakra-ui/react";
-import { CheckIcon, CopyIcon } from "@chakra-ui/icons";
+} from '@chakra-ui/react';
+import { CheckIcon, CopyIcon } from '@chakra-ui/icons';
 
 const ShareProfileButton = () => {
-  const { hasCopied, onCopy } = useClipboard("");
+  const { hasCopied, onCopy } = useClipboard('');
   const toast = useToast();
 
   const handleCopy = () => {
     toast({
-      title: "Copied!",
+      title: 'Copied!',
     });
     onCopy();
   };
@@ -25,11 +25,11 @@ const ShareProfileButton = () => {
     <>
       <Center paddingY={1}>
         <Box
-          maxW={"350px"}
-          w={"full"}
-          boxShadow={"2xl"}
-          bg={"white"}
-          rounded={"lg"}
+          maxW={'350px'}
+          w={'full'}
+          boxShadow={'2xl'}
+          bg={'white'}
+          rounded={'lg'}
           p={6}
         >
           <Stack>

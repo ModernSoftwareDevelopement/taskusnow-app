@@ -1,20 +1,20 @@
-import { createBrowserRouter } from "react-router-dom";
-import UserProfile from "../pages/applications/Users/UserProfile.tsx";
-import TaskForm from "../pages/applications/Task/components/TaskForm.tsx";
-import Tasks from "../pages/applications/Tasks/components/Tasks.tsx";
-import Layout from "../layout/Layout.tsx";
+import { createBrowserRouter } from 'react-router-dom';
+import UserProfile from '../pages/applications/Users/UserProfile.tsx';
+import TaskForm from '../pages/applications/Task/components/TaskForm.tsx';
+import Tasks from '../pages/applications/Tasks/components/Tasks.tsx';
+import Layout from '../layout/Layout.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     children: [
       {
-        path: "profile",
+        path: 'profile',
         element: <UserProfile />,
       },
       {
-        path: "tasks",
+        path: 'tasks',
         element: (
           <div>
             <Tasks />
@@ -22,11 +22,11 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "about",
+        path: 'about',
         element: <div>About</div>,
       },
       {
-        path: "task",
+        path: 'task',
         element: (
           <div>
             <TaskForm />

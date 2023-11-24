@@ -1,5 +1,5 @@
-import { Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
-import { nanoid } from "nanoid";
+import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { nanoid } from 'nanoid';
 
 export interface Column<T> {
   header: string;

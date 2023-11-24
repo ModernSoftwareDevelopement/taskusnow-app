@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { getTasks } from "../../../../services/TaskAPI";
-import { TaskInterface, TaskData } from "../../../../entities/Task";
-import { SimpleGrid, Text } from "@chakra-ui/react";
-import TasksCard from "./TasksCard";
-import TaskDetailCard from "./TaskDetailCard";
-import TaskCategories from "./TaskCategories";
+import { useEffect, useState } from 'react';
+import { getTasks } from '../../../../services/TaskAPI';
+import { TaskInterface, TaskData } from '../../../../entities/Task';
+import { SimpleGrid, Text } from '@chakra-ui/react';
+import TasksCard from './TasksCard';
+import TaskDetailCard from './TaskDetailCard';
+import TaskCategories from './TaskCategories';
 
 async function fetchAllTasks() {
   const tasks = await getTasks();
@@ -14,10 +14,10 @@ async function fetchAllTasks() {
 const Tasks = () => {
   const [tasks, setTasks] = useState<TaskInterface[]>([]);
   const [task, setTask] = useState<TaskInterface | undefined>();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   async function handleSelectedTask(task: TaskInterface) {
-    console.log("Task clicked", task);
+    console.log('Task clicked', task);
     setTask(task);
   }
 
@@ -29,7 +29,7 @@ const Tasks = () => {
         if (response.tasks) {
           setTasks(response.tasks);
         } else {
-          console.error("Invalid response format:", response);
+          console.error('Invalid response format:', response);
         }
       } catch (error) {
         const typedError = error as Error;

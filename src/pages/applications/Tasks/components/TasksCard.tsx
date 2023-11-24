@@ -1,5 +1,5 @@
-import { Card, CardBody, Heading, Avatar, Text } from "@chakra-ui/react";
-import { TaskInterface } from "../../../../entities/Task";
+import { Card, CardBody, Heading, Avatar, Text } from '@chakra-ui/react';
+import { TaskInterface } from '../../../../entities/Task';
 
 interface Props {
   Task: TaskInterface;
@@ -35,7 +35,7 @@ const TasksCard = ({ Task, OnClick }: Props) => {
               <Text color="blue.600" fontSize="lg">
                 $150
               </Text>
-              <Avatar src="https://bit.ly/broken-link" size={"sm"} />
+              <Avatar src="https://bit.ly/broken-link" size={'sm'} />
             </CardBody>
           </div>
         </div>

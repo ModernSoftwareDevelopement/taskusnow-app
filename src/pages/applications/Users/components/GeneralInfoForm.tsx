@@ -8,23 +8,23 @@ import {
   HStack,
   Input,
   Stack,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 const GeneralInfoForm = () => {
   return (
     <>
       <Center paddingY={1}>
         <Box
-          maxW={"900px"}
-          w={"full"}
-          boxShadow={"2xl"}
-          bg={"white"}
-          rounded={"lg"}
+          maxW={'900px'}
+          w={'full'}
+          boxShadow={'2xl'}
+          bg={'white'}
+          rounded={'lg'}
           p={6}
         >
           <form>
             <Stack spacing={5}>
-              <Heading fontSize={"2xl"}>General Information</Heading>
+              <Heading fontSize={'2xl'}>General Information</Heading>
 
               <Stack spacing={4}>
                 <HStack>
@@ -43,7 +43,7 @@ const GeneralInfoForm = () => {
                 </FormControl>
               </Stack>
 
-              <Heading fontSize={"2xl"}>Address</Heading>
+              <Heading fontSize={'2xl'}>Address</Heading>
 
               <Stack spacing={4}>
                 <HStack>

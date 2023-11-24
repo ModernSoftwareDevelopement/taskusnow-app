@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -19,7 +19,7 @@ class ApiClient<T> {
 
   get = (id: number | string) => {
     return axiosInstance
-      .get<T>(this.endpoint + "/" + id)
+      .get<T>(this.endpoint + '/' + id)
       .then((response) => response.data);
   };
 }

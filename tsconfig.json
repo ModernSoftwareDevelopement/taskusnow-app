@@ -5,7 +5,7 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "outDir": "./dist",
-    "skipLibCheck": true,    
+    "skipLibCheck": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -14,9 +14,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": [
-      "jest"
-    ],
+    "types": ["jest"],
 
     /* Linting */
     "strict": true,
@@ -24,10 +22,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true
-  },  
+  },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "exclude": [
-    "jest.config.ts"
-  ],
+  "exclude": ["jest.config.ts"]
 }

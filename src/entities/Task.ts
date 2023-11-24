@@ -13,9 +13,9 @@ export interface TaskInterface {
 }
 
 export enum SchedulingOption {
-  FLEXIBLE = "FLEXIBLE",
-  SEPCIFICDATE = "SEPCIFICDATE",
-  BEFOREDATE = "BEFOREDATE",
+  FLEXIBLE = 'FLEXIBLE',
+  SEPCIFICDATE = 'SEPCIFICDATE',
+  BEFOREDATE = 'BEFOREDATE',
 }
 
 export interface TimeSlot {
