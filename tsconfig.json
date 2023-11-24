@@ -28,5 +28,6 @@
   "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": [
     "jest.config.ts"
-  ]
+  ],
+  "outDir": "./dist"
 }
