@@ -9,7 +9,7 @@ export interface TaskInterface {
   scheduling: SchedulingOption;
   specificDate?: Date;
   timeslot?: TimeSlot;
-  createdon?: Date;
+  createdAt?: Date;
 }
 
 export enum SchedulingOption {
