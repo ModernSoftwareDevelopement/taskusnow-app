@@ -2,7 +2,7 @@ import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jest-environment-jsdom',
   verbose: true,
   automock: false,
   testMatch: ['**/?(*.)+(spec|test).+(ts|tsx|js)'],
@@ -11,5 +11,13 @@ const config: Config.InitialOptions = {
   coverageReporters: ['clover', 'json', 'lcov', ['text', { skipFull: true }]],
   coverageDirectory: 'coverage',
   setupFiles: ['dotenv/config'],
+  moduleNameMapper: {    
+    "\\.(css)$": "<rootDir>/styleMock.ts",
+  },
+  transform: {
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.(ts|js)x?$": "ts-jest",
+    ".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
+  },
 };
 export default config;
