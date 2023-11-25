@@ -14,8 +14,7 @@
     "test:watch": "jest --runInBand --watchAll",
     "jest": "jest"
   },
-  "dependencies": {
-    "@babel/preset-typescript": "^7.23.3",
+  "dependencies": {    
     "@chakra-ui/icons": "^2.1.0",
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.11.1",
@@ -31,9 +30,6 @@
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.3",
-    "@babel/preset-env": "^7.23.3",
-    "@babel/preset-react": "^7.23.3",
     "@hookform/resolvers": "^3.3.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^14.1.2",
@@ -44,8 +40,7 @@
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
-    "babel-jest": "^29.7.0",
+    "@vitejs/plugin-react": "^4.0.3",    
     "bootstrap": "^5.3.1",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",

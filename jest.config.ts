@@ -20,7 +20,6 @@ const config: Config.InitialOptions = {
     '\\.(css)$': '<rootDir>/styleMock.ts',
   },
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.(ts|js)x?$': 'ts-jest',
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
   },
