@@ -22,6 +22,7 @@ const useUpdateUserInfo = () => {
 
         queryClient.setQueryData(['user', userId], {
           id: userId,
+          ...(typeof previousUser === 'object' ? previousUser : {}),
           ...newUserProfile
         });
 
@@ -36,7 +37,7 @@ const useUpdateUserInfo = () => {
         });
       },
       onError: (err, user, context) => {
-        console.log('userUpdateUser', user)
+        console.log('userUpdateUser', user);
         toast({
           position: 'top-right',
           title: 'Error updating profile.',

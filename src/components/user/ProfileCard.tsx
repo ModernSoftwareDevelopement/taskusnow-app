@@ -1,11 +1,12 @@
-import { Avatar, Box, Button, Center, Heading, Stack, Text } from '@chakra-ui/react';
-import SkillTag from '../SkillTag.tsx';
+import { Avatar, Box, Button, Center, Heading, Stack, Text, Wrap, WrapItem } from '@chakra-ui/react';
 import useUser from '../../hooks/useUser.ts';
 import useUserStore from '../../stores/useAuthUserStore.ts';
+import SkillTag from './SkillTag.tsx';
+import AddSkill from './AddSkill.tsx';
 
 const ProfileCard = () => {
   const authUserId = useUserStore(state => state.userId);
-
+  const accessToken = useUserStore(state => state.accessToken);
   if (!authUserId) {
     return <div>Please login</div>;
   }
@@ -14,6 +15,9 @@ const ProfileCard = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error</div>;
 
+  console.log('skill,', data.skills);
+
+  console.log(accessToken);
   return (
     <>
       <Center>
@@ -43,8 +47,18 @@ const ProfileCard = () => {
           </Text>
 
           <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
-            <SkillTag tag="React"/>
-            <SkillTag tag="TypeScript"/>
+            <Wrap spacing={2} justify={'center'}>
+              {
+                data.skills && data.skills.map((skill: string) => (
+                  <WrapItem key={skill}>
+                    <SkillTag tag={skill}/>
+                  </WrapItem>
+                ))
+              }
+              <AddSkill skills={data.skills || []}/>
+
+            </Wrap>
+
           </Stack>
 
           <Stack mt={8} direction={'row'} spacing={4}>

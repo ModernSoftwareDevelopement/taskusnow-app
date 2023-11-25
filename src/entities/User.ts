@@ -7,6 +7,7 @@ interface User {
   phone?: string;
   address?: string;
   address_2?: string;
+  skills?: string[];
 }
 
 export default User;
