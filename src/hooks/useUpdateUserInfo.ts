@@ -37,10 +37,9 @@ const useUpdateUserInfo = () => {
         });
       },
       onError: (err, user, context) => {
-        console.log('userUpdateUser', user);
         toast({
           position: 'top-right',
-          title: 'Error updating profile.',
+          title: `Error updating profile ${user.id}`,
           description: `${err}. 'Please try again later.`,
           status: 'error',
           isClosable: true,

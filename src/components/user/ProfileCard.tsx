@@ -6,7 +6,7 @@ import AddSkill from './AddSkill.tsx';
 
 const ProfileCard = () => {
   const authUserId = useUserStore(state => state.userId);
-  const accessToken = useUserStore(state => state.accessToken);
+
   if (!authUserId) {
     return <div>Please login</div>;
   }
@@ -15,9 +15,6 @@ const ProfileCard = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error</div>;
 
-  console.log('skill,', data.skills);
-
-  console.log(accessToken);
   return (
     <>
       <Center>
