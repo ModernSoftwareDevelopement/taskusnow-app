@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 
 export interface Column<T> {
   header: string;
-  accessor: (row: T) => string | number;
+  accessor: (row: T) => string | number | undefined;
 }
 
 interface DataTableProps<T> {
