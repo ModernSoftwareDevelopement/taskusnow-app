@@ -1,13 +1,10 @@
-import ApiClient from '../services/api-client';
 import { useQuery } from '@tanstack/react-query';
-import User from '../entities/User';
-
-const apiClient = new ApiClient<User>('/users');
+import userService from '../services/userService.ts';
 
 const useUsers = () => {
   return useQuery({
     queryKey: ['users'],
-    queryFn: apiClient.getAll,
+    queryFn: userService.getAll,
   });
 };
 
