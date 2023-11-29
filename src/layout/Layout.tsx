@@ -23,7 +23,7 @@ const Layout = () => {
       }
     };
     handleAuthentication();
-  }, [isAuthenticated, user, setUserId, setAccessToken]);
+  }, [isAuthenticated, user, setUserId, setAccessToken, getAccessTokenSilently]);
 
   return (
     <>
