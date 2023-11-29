@@ -7,11 +7,11 @@ export interface Column<T> {
 }
 
 interface DataTableProps<T> {
-  data: T[],
+  data: T[];
   columns: Column<T>[];
 }
 
-const DataTable = <T, >({ data, columns }: DataTableProps<T>) => {
+const DataTable = <T,>({ data, columns }: DataTableProps<T>) => {
   return (
     <>
       <Table variant="simple">

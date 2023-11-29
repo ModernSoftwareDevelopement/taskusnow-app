@@ -4,13 +4,11 @@ import User from '../entities/User.ts';
 import profileService from '../services/profileService.ts';
 import useUserStore from '../stores/useAuthUserStore.ts';
 
-
 const useUpdateUserInfo = () => {
   const queryClient = useQueryClient();
   const accessToken = useUserStore((state) => state.accessToken);
   const userId = useUserStore((state) => state.userId);
   const toast = useToast();
-
 
   return useMutation(
     (newUserProfile) => profileService.post(newUserProfile, accessToken),
@@ -23,7 +21,7 @@ const useUpdateUserInfo = () => {
         queryClient.setQueryData(['user', userId], {
           id: userId,
           ...(typeof previousUser === 'object' ? previousUser : {}),
-          ...newUserProfile
+          ...newUserProfile,
         });
 
         return { previousUser, newUserProfile };
@@ -47,8 +45,8 @@ const useUpdateUserInfo = () => {
 
         if (!context) return;
         queryClient.setQueryData(['user', userId], context.previousUser);
-      }
-    }
+      },
+    },
   );
 };
 

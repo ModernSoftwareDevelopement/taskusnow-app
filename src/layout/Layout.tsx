@@ -16,20 +16,25 @@ const Layout = () => {
         try {
           const accessToken = await getAccessTokenSilently();
           setAccessToken(accessToken);
-        }
-        catch (error) {
+        } catch (error) {
           console.error('Error getting access token:', error);
         }
       }
     };
     handleAuthentication();
-  }, [isAuthenticated, user, setUserId, setAccessToken, getAccessTokenSilently]);
+  }, [
+    isAuthenticated,
+    user,
+    setUserId,
+    setAccessToken,
+    getAccessTokenSilently,
+  ]);
 
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <Box padding={5}>
-        <Outlet/>
+        <Outlet />
       </Box>
     </>
   );

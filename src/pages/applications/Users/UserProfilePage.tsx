@@ -11,17 +11,14 @@ const UserProfilePage = () => {
       gap={1}
     >
       <GridItem colSpan={2}>
+        <ProfileCard />
 
-        <ProfileCard/>
-
-        <ShareProfileButton/>
-
+        <ShareProfileButton />
       </GridItem>
 
       <GridItem colSpan={4}>
-        <GeneralInfoForm/>
+        <GeneralInfoForm />
       </GridItem>
-
     </Grid>
   );
 };

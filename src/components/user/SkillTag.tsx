@@ -1,6 +1,5 @@
 import { Tag, TagLabel } from '@chakra-ui/react';
 
-
 interface Props {
   tag: string;
 }
