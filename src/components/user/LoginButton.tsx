@@ -5,9 +5,7 @@ const LoginButton = () => {
   const { loginWithRedirect } = useAuth();
 
   return (
-    <>
-      <Button onClick={() => loginWithRedirect()}>Login</Button>
-    </>
+    <Button onClick={() => loginWithRedirect()}>Login</Button>
   );
 };
 

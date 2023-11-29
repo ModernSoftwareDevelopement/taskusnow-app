@@ -7,12 +7,9 @@ interface Props {
 
 const SkillTag = ({ tag }: Props) => {
   return (
-    <>
-      <Tag variant="outline" colorScheme="blue">
-        <TagLabel>{tag}</TagLabel>
-      </Tag>
-
-    </>
+    <Tag variant="outline" colorScheme="blue">
+      <TagLabel>{tag}</TagLabel>
+    </Tag>
   );
 };
 
