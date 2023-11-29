@@ -1,4 +1,4 @@
 import ApiClient from './api-client.ts';
-import { TaskData } from '../entities/Task.ts';
+import User from '../entities/User.ts';
 
-export default new ApiClient<TaskData>('/api/tasks');
+export default new ApiClient<User>('/profile' );
