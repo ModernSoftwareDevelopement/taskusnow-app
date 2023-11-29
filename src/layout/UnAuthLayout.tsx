@@ -5,9 +5,9 @@ import UnAuthNavBar from './UnAuthNavBar.tsx';
 const UnAuthLayout = () => {
   return (
     <>
-      <UnAuthNavBar/>
+      <UnAuthNavBar />
       <Box>
-        <Outlet/>
+        <Outlet />
       </Box>
     </>
   );

@@ -11,28 +11,27 @@ class ApiClient<T> {
     this.endpoint = endpoint;
   }
 
-  getAll = () => {
-    return axiosInstance
-      .get<T[]>(this.endpoint)
-      .then(response => response.data);
-  }
+  getAll = async () => {
+    const response = await axiosInstance
+      .get<T[]>(this.endpoint);
+    return response.data;
+  };
 
-  get = (id: number | string) => {
-    return axiosInstance
-      .get<T>(this.endpoint + "/" + id)
-      .then(response => response.data);
-  }
+  get = async (id: number | string) => {
+    const response = await axiosInstance
+      .get<T>(this.endpoint + '/' + id);
+    return response.data;
+  };
 
-  post = (data: T, accessToken?: string) => {
-    return axiosInstance
+  post = async (data: T, accessToken?: string) => {
+    const response = await axiosInstance
       .post<T>(this.endpoint, data, {
         headers: {
           Authorization: `Bearer ${accessToken}` || undefined,
-        }
-      })
-      .then(response => response.data);
-  }
-
+        },
+      });
+    return response.data;
+  };
 }
 
 export default ApiClient;

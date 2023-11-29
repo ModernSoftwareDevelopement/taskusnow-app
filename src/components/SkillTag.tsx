@@ -6,9 +6,7 @@ interface Props {
 
 const SkillTag = ({ tag }: Props) => {
   return (
-    <Badge px={2}
-           py={1}
-           fontWeight={'400'}>
+    <Badge px={2} py={1} fontWeight={'400'}>
       #{tag}
     </Badge>
   );

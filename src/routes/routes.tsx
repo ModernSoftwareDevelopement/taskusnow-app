@@ -9,33 +9,39 @@ import UserProfilePage from '../pages/applications/Users/UserProfilePage.tsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <PublicRoutes/>,
+    element: <PublicRoutes />,
     children: [
       {
-        index: true, element: <Home/>
+        index: true,
+        element: <Home />,
       },
       {
-        path: 'login', element: <LoginPage/>
+        path: 'login',
+        element: <LoginPage />,
       },
       {
-        path: 'about', element: <div>About</div>
-      }
-    ]
+        path: 'about',
+        element: <div>About</div>,
+      },
+    ],
   },
   {
-    element: <PrivateRoutes/>,
+    element: <PrivateRoutes />,
     children: [
       {
-        path: 'dashboard', element: <Dashboard/>
+        path: 'dashboard',
+        element: <Dashboard />,
       },
       {
-        path: 'profile', element: <UserProfilePage/>
+        path: 'profile',
+        element: <UserProfilePage />,
       },
       {
-        path: 'tasks', element: <div>Tasks</div>
+        path: 'tasks',
+        element: <div>Tasks</div>,
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
 export default router;

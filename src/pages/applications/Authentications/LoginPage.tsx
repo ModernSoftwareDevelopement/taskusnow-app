@@ -10,15 +10,15 @@ const LoginPage = () => {
   }
 
   if (user) {
-    return <Navigate to="/dashboard"/>;
+    return <Navigate to="/dashboard" />;
   }
 
   return (
     <div>
       <h1>LoginPage</h1>
-      <LoginButton/>
+      <LoginButton />
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;

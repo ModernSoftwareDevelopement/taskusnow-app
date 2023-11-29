@@ -17,7 +17,7 @@ import {
   TagCloseButton,
   Stack,
   FormHelperText,
-  FormErrorMessage
+  FormErrorMessage,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import React, { ChangeEvent, useState } from 'react';
@@ -40,7 +40,11 @@ const AddSkill = ({ skills }: Props) => {
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && inputValue.trim() !== '') {
-      if (newSkills.find((skill) => skill.toLowerCase() === inputValue.toLowerCase())) {
+      if (
+        newSkills.find(
+          (skill) => skill.toLowerCase() === inputValue.toLowerCase(),
+        )
+      ) {
         return;
       }
       setNewSkills([...newSkills, inputValue.trim()]);
@@ -71,17 +75,14 @@ const AddSkill = ({ skills }: Props) => {
         colorScheme="blue"
         aria-label="Add skills"
         size={'xs'}
-        icon={<AddIcon/>}
-        onClick={onOpenForm}/>
+        icon={<AddIcon />}
+        onClick={onOpenForm}
+      />
 
-      <Modal
-        isOpen={isOpen}
-        onClose={onClose}>
-        <ModalOverlay/>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
         <ModalContent>
-          <ModalHeader>
-            Add Skills
-          </ModalHeader>
+          <ModalHeader>Add Skills</ModalHeader>
           <ModalBody>
             <FormControl>
               <Stack spacing={3}>
@@ -93,7 +94,8 @@ const AddSkill = ({ skills }: Props) => {
                   onKeyDown={handleInputKeyDown}
                 />
                 <FormErrorMessage>
-                  {newSkills.length > MAX_SKILLS && `Maximum ${MAX_SKILLS} skills.`}
+                  {newSkills.length > MAX_SKILLS &&
+                    `Maximum ${MAX_SKILLS} skills.`}
                 </FormErrorMessage>
                 <FormHelperText>Maximum {MAX_SKILLS} skills.</FormHelperText>
 
@@ -108,31 +110,32 @@ const AddSkill = ({ skills }: Props) => {
                         mr={2}
                       >
                         <TagLabel>{skill}</TagLabel>
-                        <TagCloseButton onClick={() => removeSkill(skill)}/>
+                        <TagCloseButton onClick={() => removeSkill(skill)} />
                       </Tag>
                     </WrapItem>
                   ))}
                 </Wrap>
               </Stack>
-
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3}
-                    isDisabled={newSkills.length > MAX_SKILLS}
-                    onClick={onSave}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              isDisabled={newSkills.length > MAX_SKILLS}
+              onClick={onSave}
+            >
               Save
             </Button>
-            <Button variant="ghost" onClick={onClose}>Cancel</Button>
+            <Button variant="ghost" onClick={onClose}>
+              Cancel
+            </Button>
           </ModalFooter>
         </ModalContent>
-
-
       </Modal>
-
-    </>);
-
+    </>
+  );
 };
 
 export default AddSkill;

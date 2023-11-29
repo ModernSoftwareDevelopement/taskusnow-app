@@ -14,5 +14,4 @@ const useAuthUserStore = create<UseAuthUserStore>((set) => ({
   setAccessToken: (accessToken: string) => set({ accessToken }),
 }));
 
-
 export default useAuthUserStore;

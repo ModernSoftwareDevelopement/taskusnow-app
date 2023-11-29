@@ -1,10 +1,7 @@
 import Layout from '../layout/Layout.tsx';
 
 const PublicRoutes = () => {
-
-  return (
-    <Layout/>
-  )
-}
+  return <Layout />;
+};
 
 export default PublicRoutes;

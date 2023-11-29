@@ -4,23 +4,25 @@ import {
   EditableInput,
   EditablePreview,
   IconButton,
-  Input, Tooltip,
-  useEditableControls
+  Input,
+  Tooltip,
+  useEditableControls,
 } from '@chakra-ui/react';
 import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
 
-
 const EditableControls = () => {
-  const { isEditing, getSubmitButtonProps, getCancelButtonProps } = useEditableControls();
+  const { isEditing, getSubmitButtonProps, getCancelButtonProps } =
+    useEditableControls();
 
   return isEditing ? (
     <ButtonGroup justifyContent="end" size="sm" w="full" spacing={2} mt={2}>
-      <IconButton icon={<CheckIcon/>}
-                  {...getSubmitButtonProps()}
-                  aria-label=""
+      <IconButton
+        icon={<CheckIcon />}
+        {...getSubmitButtonProps()}
+        aria-label=""
       />
       <IconButton
-        icon={<CloseIcon boxSize={3}/>}
+        icon={<CloseIcon boxSize={3} />}
         {...getCancelButtonProps()}
         aria-label=""
       />
@@ -37,7 +39,14 @@ interface Props {
   onEdit?: () => void;
 }
 
-const EditableText = ({ placeholder, value, defaultValue, onSubmit, onChange, onEdit }: Props) => {
+const EditableText = ({
+  placeholder,
+  value,
+  defaultValue,
+  onSubmit,
+  onChange,
+  onEdit,
+}: Props) => {
   return (
     <Editable
       placeholder={placeholder}
@@ -54,12 +63,12 @@ const EditableText = ({ placeholder, value, defaultValue, onSubmit, onChange, on
           py={2}
           px={4}
           _hover={{
-            background: 'gray.100'
+            background: 'gray.100',
           }}
         />
       </Tooltip>
-      <Input py={2} px={4} as={EditableInput}/>
-      <EditableControls/>
+      <Input py={2} px={4} as={EditableInput} />
+      <EditableControls />
     </Editable>
   );
 };
