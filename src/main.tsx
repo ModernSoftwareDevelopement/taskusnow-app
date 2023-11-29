@@ -13,8 +13,8 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchOnReconnect: false,
-    }
-  }
+    },
+  },
 });
 import { Auth0Provider } from '@auth0/auth0-react';
 import { RouterProvider } from 'react-router-dom';
@@ -25,25 +25,21 @@ const domain = import.meta.env.VITE_AUTH0_DOMAIN as string;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID as string;
 const audience = import.meta.env.VITE_AUTH0_AUDIENCE as string;
 const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL as string;
-    },
-  },
-});
-import { RouterProvider } from 'react-router-dom';
-import router from './routes/routes.tsx';
-import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ChakraProvider>
-      <Auth0Provider domain={domain}
-                     clientId={clientId}
-                     authorizationParams={{
-                       audience: audience,
-                       redirect_uri: redirectUri,
-                     }}>
+      <Auth0Provider
+        domain={domain}
+        clientId={clientId}
+        authorizationParams={{
+          audience: audience,
+          redirect_uri: redirectUri,
+        }}
+      >
         <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools initialIsOpen={true}/>
-          <RouterProvider router={router}/>
+          <ReactQueryDevtools initialIsOpen={true} />
+          <RouterProvider router={router} />
         </QueryClientProvider>
       </Auth0Provider>
     </ChakraProvider>
