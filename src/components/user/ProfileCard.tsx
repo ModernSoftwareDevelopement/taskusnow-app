@@ -45,12 +45,11 @@ const ProfileCard = () => {
 
         <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
           <Wrap spacing={2} justify={'center'}>
-            {data.skills &&
-              data.skills.map((skill: string) => (
-                <WrapItem key={skill}>
-                  <SkillTag tag={skill} />
-                </WrapItem>
-              ))}
+            {data.skills?.map((skill: string) => (
+              <WrapItem key={skill}>
+                <SkillTag tag={skill} />
+              </WrapItem>
+            ))}
             <AddSkill skills={data.skills || []} />
           </Wrap>
         </Stack>
