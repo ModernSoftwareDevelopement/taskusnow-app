@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "format": "prettier --write .",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "jest": "jest"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1",
@@ -32,6 +33,7 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.10",
     "@types/node": "^20.8.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
