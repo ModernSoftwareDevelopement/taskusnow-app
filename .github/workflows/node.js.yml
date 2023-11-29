@@ -36,9 +36,14 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Install Dependencies
+        run: npm install
+      - name: Test and Coverage
+        run: npm run test
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

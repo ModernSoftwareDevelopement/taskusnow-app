@@ -4,6 +4,7 @@
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "outDir": "./dist",
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -13,6 +14,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": ["jest"],
 
     /* Linting */
     "strict": true,
@@ -22,5 +24,6 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": ["jest.config.ts"]
 }
