@@ -13,6 +13,7 @@ import useUser from '../../hooks/useUser.ts';
 import useUserStore from '../../stores/useAuthUserStore.ts';
 import SkillTag from './SkillTag.tsx';
 import AddSkill from './AddSkill.tsx';
+import UploadProfilePhoto from './UploadProfilePhoto.tsx';
 
 const ProfileCard = () => {
   const authUserId = useUserStore((state) => state.userId);
@@ -35,10 +36,10 @@ const ProfileCard = () => {
         <Avatar
           size={'xl'}
           mb={4}
-          src={
-            'https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-6/357710445_3125878341053480_5214693532527175189_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=iE8L6K5WrnYAX-qMo_V&_nc_ht=scontent.fhan14-4.fna&oh=00_AfB3xV_I-Y768tWK6PKCK8gnFaEtR2n7jbQNzd0RUHS4fg&oe=65085F39'
-          }
-        />
+          src={data.imageUrl ?? 'https://bit.ly/broken-link'}
+        >
+          <UploadProfilePhoto />
+        </Avatar>
         <Heading>{data.fullName}</Heading>
         <Text>@liucuxiu</Text>
         <Text>Software Engineer</Text>
