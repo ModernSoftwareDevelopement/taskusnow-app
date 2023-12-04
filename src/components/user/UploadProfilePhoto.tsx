@@ -56,7 +56,7 @@ const UploadProfilePhoto = () => {
     <>
       <IconButton
         aria-label="Upload profile photo"
-        icon={<AddIcon />}
+        icon={<AddIcon/>}
         onClick={onOpen}
         height="100%"
         width="100%"
@@ -67,10 +67,10 @@ const UploadProfilePhoto = () => {
       />
 
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+        <ModalOverlay/>
         <ModalContent>
           <ModalHeader>Edit profile photo</ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton/>
           <ModalBody>
             <AspectRatio width="100" ratio={1}>
               <Box
@@ -79,7 +79,6 @@ const UploadProfilePhoto = () => {
                 borderWidth="2px"
                 rounded="md"
                 shadow="sm"
-                role="group"
               >
                 <Box position="relative" height="100%" width="100%">
                   <Box
@@ -101,7 +100,7 @@ const UploadProfilePhoto = () => {
                     >
                       {!file.url && (
                         <Box position="relative">
-                          <PlusSquareIcon boxSize={10} />
+                          <PlusSquareIcon boxSize={10}/>
                         </Box>
                       )}
 

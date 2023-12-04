@@ -36,7 +36,7 @@ const ProfileCard = () => {
         <Avatar
           size={'xl'}
           mb={4}
-          src={data.imageUrl || 'https://bit.ly/broken-link'}
+          src={data.imageUrl ?? 'https://bit.ly/broken-link'}
         >
           <UploadProfilePhoto />
         </Avatar>
