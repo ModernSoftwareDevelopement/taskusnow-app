@@ -19,6 +19,8 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import logo from '../assets/react.svg';
 import useAuth from '../hooks/useAuth.ts';
+import useUserStore from '../stores/useAuthUserStore.ts';
+import useUser from '../hooks/useUser.ts';
 
 interface Props {
   name: string;
@@ -70,6 +72,9 @@ const NavBar = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const authUserId = useUserStore((state) => state.userId);
+  const { data } = useUser(authUserId!);
+
   return (
     <>
       <Box
@@ -111,7 +116,7 @@ const NavBar = () => {
                   cursor={'pointer'}
                   minW={0}
                 >
-                  <Avatar size={'md'} />
+                  <Avatar size={'md'} src={data?.imageUrl} />
                 </MenuButton>
               ) : (
                 <MenuButton
